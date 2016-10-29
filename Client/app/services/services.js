@@ -121,6 +121,14 @@ angular.module('app.services', [])
       })
   };
 
+  var setPresolve = function(ticket) {
+    return $http({
+      method: 'PUT',
+      url: '/setpresolve',
+      data: ticket
+    })
+  }
+
   return {
     getTickets: getTickets,
     addTicket: addTicket,
@@ -130,7 +138,8 @@ angular.module('app.services', [])
     unsolveTicket: unsolveTicket,
     getUserTickets: getUserTickets,
     getThresholds: getThresholds,
-    updateThresholds: updateThresholds
+    updateThresholds: updateThresholds,
+    setPresolve: setPresolve
 
   }
 }])

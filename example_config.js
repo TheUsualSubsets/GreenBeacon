@@ -5,3 +5,4 @@ if(process.env.NODE_ENV !== 'production') {
     gitHubSecretKey: '1a83361531f95647d54183aba3601ff8ca1d51dd',
     gitCallbackUrl: 'http://localhost:3000/callback'
 }
+}

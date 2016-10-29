@@ -75,29 +75,19 @@ var Ticket = db.define('ticket', {
   unsolvedCount:{
     type: Sequelize.INTEGER,
     defaultValue: 0
+  },
+  claimer: {
+    type: Sequelize.STRING
   }
 });
 
-//creates table of claimed tickets
-var Claim = db.define('claim', {
-  id: {
-    type: Sequelize.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
-  },
-  //id of the user who claimed the ticket
-  helpeeId: Sequelize.INTEGER
-});
+
 
 //Defines relationships between tables
 User.hasMany(Ticket);
 Ticket.belongsTo(User);
 
-User.hasMany(Claim);
-Claim.belongsTo(User);
 
-Ticket.hasOne(Claim);
-Claim.belongsTo(Ticket);
 
 //Create Tables
 db
@@ -141,6 +131,5 @@ var initializeTicketLevels = function() {
 module.exports = {
   User: User,
   Ticket: Ticket,
-  Claim: Claim,
   TicketLevel: TicketLevel
 };

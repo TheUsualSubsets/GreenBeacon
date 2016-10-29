@@ -120,7 +120,7 @@ input[type=number] {
 .input-text {
 	margin-top: 20px;
 	width:360px;
-  height: 40px
+    height: 40px
 }
 
 .submit {
@@ -312,13 +312,18 @@ footer {
 .welcomeMessage {
   color: white;
   display: inline-block;
-  margin-top: 6px;
+  margin-top: 10px;
+  font-size: 35px; 
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
 .role {
-  color: green;
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bolder;
+  font-size: 26px;
+
 }
 
 .signout, .admin {
@@ -382,6 +387,7 @@ footer {
   margin-bottom: 30px;
 }
 
+	
 
 /*.headerq {
   display: block;
