@@ -1,7 +1,5 @@
 //Queue controller
-
 angular.module('app.queue', [])
-
 
 .controller('QueueController', ['$scope', 'Tickets', 'Auth', '$location', function($scope, Tickets, Auth, $location){
   $scope.isadmin = false;
