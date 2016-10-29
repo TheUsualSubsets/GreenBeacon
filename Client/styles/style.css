@@ -297,7 +297,7 @@ footer {
   color: white;
   text-align: center;
   display: block;
-  height: 50px;
+  height: 120px;
   width: 100%;
   border: 10px;
 
@@ -314,23 +314,26 @@ footer {
   display: inline-block;
   margin-top: 10px;
   font-size: 35px; 
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
 
 }
 
 .role {
-  color: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: lightgreen;
+  display: block;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-weight: bolder;
-  font-size: 26px;
+  font-size: 30px;
 
 }
 
 .signout, .admin {
+  font-size: 1.5em;
   color: white;
   float: right;
   cursor: pointer;
-  margin-top: 6px;
+  margin-top: 30px;
+  margin-right: 10px;
 
 }
 

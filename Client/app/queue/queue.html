@@ -2,9 +2,8 @@
 <div class="headerbar">
 	<img class='logoimg' alt="Logo" src="/../../logo.png" />
   <span class="welcomeMessage">Welcome {{name}}
-  <br>
     <span class="role">
-      {{role}} User
+      {{role}}
     </span>
   </span>
 	<a ng-show="isadmin" class='admin btn' ng-click='admin()'>Admin
@@ -41,9 +40,25 @@
 		<!-- Form for submitting new tickets -->
 		<form autocomplete="off" name="input-group" class="input-group" ng-submit="mustAdd()">
 		    <input name="select" class="form-control" type="hidden" ng-model="ticket.location" required/>
+				
+			<label class="locationtext" for="select">
+				<span ng-if='!ticket.location' ng-class="{'red': isRed}">
+					Click the map to select your location 
+				</span>
+
+				<span ng-if='ticket.location'>
+					Location: {{ticket.location}}
+				</span> 
+
+
+			</label>
+
 		    <input name="ticket" class="input-text" type="text" ng-model="ticket.message" placeholder="Enter your question here" required/>
-				<label class="locationtext" for="select">  <span ng-class="{'red': isRed}">Click the map to select your location:</span> {{ticket.location}} </label>
+
 				<br>
+
+
+
 		    <input class="submit btn btn-default" type="submit" value="Add">
 		</form>
 	</div>
