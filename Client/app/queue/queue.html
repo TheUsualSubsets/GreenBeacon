@@ -15,9 +15,9 @@
 
 <div id="big-container">
   <!-- Tickets queue -->
-  <div class='ticketNav'> 
-  	<button type='btn' class='lobby btn btn-default' ng-click="initializeQueue()">Other Tickets</button>
-  	<button type='btn' class='user btn btn-default' ng-click="showUserTickets()">My Tickets</button>
+  <div class='ticketNav'>
+  	<button type='btn' class='lobby btn btn-default' ng-click="initializeQueue()">Lobby</button>
+  	<button type='btn' class='user btn btn-default' ng-click="showUserTickets()">User</button>
   </div>
 	<div id="queueContainer">
 		<div class="list-group">
@@ -37,17 +37,19 @@
 		</div>
 
 		<!-- Form for submitting new tickets -->
-		<form autocomplete="off" name="input-group" class="input-group" ng-submit="addTicket()">
-		  <label class="locationtext" for="select">  Click the map to select your location: {{ticket.location}} </label>
+		<form autocomplete="off" name="input-group" class="input-group" ng-submit="mustAdd()">
 		    <input name="select" class="form-control" type="hidden" ng-model="ticket.location" required/>
 		    <input name="ticket" class="input-text" type="text" ng-model="ticket.message" placeholder="Enter your question here" required/>
-		    <input class="submit btn btn-default" type="submit" value="Add" ng-disabled="!ticket.location">
+				<label class="locationtext" for="select">  <span ng-class="{'red': isRed}">Click the map to select your location:</span> {{ticket.location}} </label>
+				<br>
+		    <input class="submit btn btn-default" type="submit" value="Add">
 		</form>
 	</div>
 
 	<!-- Map -->
 	<div id="map">
 
+		<div ng-show="bathroomAlert" class="bathroomAlert"> Y U on UR laptop in the bathroom homes?!</div>
 		<svg width="600" height="600">
 		<!-- Loads map image -->
 			<image ng-click="getCoordinates($event)" x="0" y="0" width="500" height="600" xlink:href="../../../smaller.png" />

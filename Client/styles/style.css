@@ -19,6 +19,7 @@ h1 {
 	margin-bottom: 0;
 }
 
+
 table {
 	margin-top: 2.5%;
 }
@@ -105,8 +106,15 @@ input[type=number] {
 .list-group-item, .form-control, .input-text {
 	background-color: #E8E9F9;
 }
+
 .locationtext {
-	color: #E8E9F9;
+	margin-left: 10px;
+	color: white;
+}
+
+.red {
+	color: red;
+  text-shadow: 0 0 0.2em #FF6C6C;
 }
 
 .input-text {
@@ -123,7 +131,6 @@ input[type=number] {
 
 .btn {
 	color: #613DC1;
-
 }
 
 .btn-1 {
@@ -162,20 +169,33 @@ input[type=number] {
   margin-top: 20px
 }
 
-#map {
-	float: right;
-	margin-top: -30px;
-	width: 30%;
-	position: absolute;
-
-}
-
 #signin {
 	width: 40%;
 	margin: 0 auto;
 	text-align:center;
 	padding-top: 50px;
-  margin-top: 80px;
+	margin-top: 80px;
+}
+
+#map {
+	float: right;
+	margin-top: -30px;
+	width: 30%;
+	position: absolute;
+	text-align: center;
+}
+
+.bathroomAlert {
+	margin-left: 30%;
+	margin-top: 60%;
+	position: absolute;
+	width: 70%;
+	height: 10%;
+	color: #BE04F0;
+	background-color: #3D3340;
+	z-index: 99;
+	border: 1px solid gray;
+	border-radius: 10px;
 }
 
 .hiddenDot, .hiddenPulse {

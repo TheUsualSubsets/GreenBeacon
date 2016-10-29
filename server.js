@@ -69,24 +69,29 @@ io.on('connection', function(socket){
   //socket event listeners / emitters
   socket.on('addTicket', function() {
     io.emit('ticketChange');
-    console.log('ticketAdded');
   });
   socket.on('claimTicket', function() {
     io.emit('ticketChange');
-    console.log('ticketClaimed');
   });
   socket.on('eraseClaim', function() {
     io.emit('ticketChange');
-    console.log('claimErased');
   });
   socket.on('solveTicket', function() {
     io.emit('ticketChange');
-    console.log('ticketSolved');
   });
   socket.on('unsolveTicket', function() {
     io.emit('ticketChange');
-    console.log('ticketUnsolved');
   });
+  socket.on('updateThresholds', function() {
+    io.emit('ticketChange');
+  });
+  socket.on('unsolveTicket', function() {
+    io.emit('ticketChange');
+  });
+  socket.on('updateUser', function() {
+    io.emit('ticketChange');
+  });
+
 
   socket.on('disconnect', function(){
     console.log('a user disconnected!');

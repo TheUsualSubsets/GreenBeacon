@@ -26,27 +26,26 @@ angular.module('app.admin', [])
         $scope.levels.forEach(function(item){
           $scope.ticketThresholds[item.authorizationlevel] = item.threshold;
         });
-        console.log($scope.ticketThresholds);
       });
     };
 
   $scope.updateTable = function() {
     //pull user data from users array (returned from DB) by filtering
       //set selectedPerson model equal to the user that matches displayname in the menu
+
     $scope.selectedPerson = $scope.users
     .filter(function(user){
-      return user.displayname === $scope.person;
+        return user.displayname === $scope.person;
      })[0];
 
-     $scope.selectedPerson.authorizationTitle = 
+
+     $scope.selectedPerson.authorizationTitle =
       $scope.authorizationTitleLevelMap[$scope.selectedPerson.authorizationlevel];
 
-    console.log($scope.selectedPerson.authorizationTitle, 'authtitle');
   };
 
   $scope.displayThreshold = function() {
     $scope.threshold = $scope.ticketThresholds[$scope.authorizationLevelTitleMap[$scope.role]];
-    console.log($scope.threshold, 'scope threshold');
   }
 
   $scope.updateUser = function() {
@@ -61,7 +60,6 @@ angular.module('app.admin', [])
       authorizationlevel: $scope.authorizationLevelTitleMap[$scope.role],
       threshold: $scope.threshold
     }
-    console.log($scope.ticket, 'ticket');
     Tickets.updateThresholds($scope.ticket).then(function(results){
       $route.reload();
     })

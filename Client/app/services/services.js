@@ -115,7 +115,10 @@ angular.module('app.services', [])
       method: 'PUT',
       url: '/ticketLevel',
       data: ticket
-    });
+    })
+      .then(function() {
+        Socket.emit('updateThresholds');
+      })
   };
 
   return {
@@ -178,6 +181,9 @@ angular.module('app.services', [])
       url: '/users',
       data: user
     })
+      .then(function() {
+        Socket.emit('updateUser');
+      })
   }
   return {
     getUsers: getUsers,
