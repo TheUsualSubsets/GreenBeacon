@@ -1,7 +1,5 @@
 //Queue controller
-
 angular.module('app.queue', [])
-
 
 .controller('QueueController', ['$scope', 'Tickets', 'Auth', '$location', function($scope, Tickets, Auth, $location){
   $scope.isadmin = false;
@@ -221,7 +219,6 @@ angular.module('app.queue', [])
   }
 
   $scope.unsolveTicket = function (ticket) {
-
     //if 'Not Solved' is clicked, pass the ticket to unsolveTicket service
      Tickets.unsolveTicket(ticket)
       .then(function () {
@@ -246,6 +243,10 @@ angular.module('app.queue', [])
         SVGdot[i].setAttribute('class', 'dot hiddenDot');
       }
     }
+  }
+
+  $scope.showAllDots = function() {
+    Socket.emit('addTicket')
   }
 
   $scope.initializeQueue();

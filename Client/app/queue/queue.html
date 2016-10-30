@@ -13,7 +13,6 @@
 </div>
 
 <div id="big-container">
-
   <!-- Tickets queue -->
   <div class='ticketNav'> 
   	<button type='btn' class='lobby btn btn-default' ng-click="toggleView('lobby')">Lobby</button>
@@ -24,7 +23,8 @@
 		<div class="list-group">
 		  <div  class="ticket" ng-repeat="ticket in data.tickets | filter: {solved: false, userId: filtervalue} | orderBy:'-unsolvedCount' ">
 		    <!-- Renders each ticket to the queue -->
-		    <a class="list-group-item list-group-item-action" ng-class="{'ticket-claimed list-group-item list-group-item-action': ticket.claimed,  'studentTicket list-group-item list-group-item-action' : (ticket.unsolvedCount < {{student.threshold}} && !ticket.claimed), 'fellowTicket list-group-item list-group-item-action' : (ticket.unsolvedCount >= {{student.threshold}} && ticket.unsolvedCount < {{teacher.threshold}} && !ticket.claimed), 'instructorTicket list-group-item list-group-item-action' : (ticket.unsolvedCount > {{fellow.threshold}} && !ticket.claimed), 'list-group-item list-group-item-action': !ticket.claimed}" ng-mouseover = 'showDot(ticket.x, ticket.y)' x = {{ticket.x}} y ={{ticket.y}}>
+
+		    <a class="list-group-item list-group-item-action" ng-class="{'ticket-claimed list-group-item list-group-item-action': ticket.claimed,  'studentTicket list-group-item list-group-item-action' : (ticket.unsolvedCount < {{student.threshold}} && !ticket.claimed), 'fellowTicket list-group-item list-group-item-action' : (ticket.unsolvedCount >= {{student.threshold}} && ticket.unsolvedCount < {{teacher.threshold}} && !ticket.claimed), 'instructorTicket list-group-item list-group-item-action' : (ticket.unsolvedCount > {{fellow.threshold}} && !ticket.claimed), 'list-group-item list-group-item-action': !ticket.claimed}"  ng-mouseover = 'showDot(ticket.x, ticket.y)' ng-mouseleave = showAllDots() x = {{ticket.x}} y ={{ticket.y}}>
 
 
         	<h5 class="list-group-item-heading" ng-bind="ticket.user.displayname"></h5>
@@ -80,6 +80,8 @@
 		</svg>
 	</div>
 
+
 	<footer><p>&copy; 2016 Made with Farts at Makersquare | BeaconDev</p></footer>
+
 
 </div>
