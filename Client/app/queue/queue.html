@@ -49,8 +49,6 @@
 				<span ng-if='ticket.location'>
 					Location: {{ticket.location}}
 				</span> 
-
-
 			</label>
 
 		    <input name="ticket" class="input-text" type="text" ng-model="ticket.message" placeholder="Enter your question here" required/>
@@ -66,7 +64,8 @@
 	<!-- Map -->
 	<div id="map">
 
-		<div ng-show="bathroomAlert" class="bathroomAlert"> Y U on UR laptop in the bathroom homes?!</div>
+		<div ng-if="bathroomAlert" class="bathroomAlert"> Y U on UR laptop in the bathroom homes?!</div>
+
 		<svg width="600" height="600">
 		<!-- Loads map image -->
 			<image ng-click="getCoordinates($event)" x="0" y="0" width="500" height="600" xlink:href="../../../smaller.png" />
