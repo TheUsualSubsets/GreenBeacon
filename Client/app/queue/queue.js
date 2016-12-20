@@ -28,9 +28,10 @@ angular.module('app.queue', [])
   //set threshold levels for ticket colors
   $scope.displayThresholds = function(){
     Tickets.getThresholds()
+    .then(function(levels) {
       if(levels.data === 'failed') {
         $location.path('/signin');
-        return
+        return;
       }
       var setLevels = levels.data;
 
@@ -56,7 +57,7 @@ angular.module('app.queue', [])
       .then(function(results){
         if(results.data === "failed") {
           $location.path('/signin');
-          return
+          return;
         }
         $scope.isadmin = results.data.isadmin;
         $scope.userID = results.data.userID;
