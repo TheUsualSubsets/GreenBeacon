@@ -26,9 +26,12 @@ angular.module('app.queue', [])
   });
 
   //set threshold levels for ticket colors
-  var displayThresholds = function(){
+  $scope.displayThresholds = function(){
     Tickets.getThresholds()
-    .then(function(levels) {
+      if(levels.data === 'failed') {
+        $location.path('/signin');
+        return
+      }
       var setLevels = levels.data;
 
       $scope.student = setLevels.filter(function(level){
@@ -46,10 +49,15 @@ angular.module('app.queue', [])
   };
 
   $scope.initializeQueue = function() {
+    //retrieve level thresholds from database
+    $scope.displayThresholds();
     //retrieve tickets from database
-    displayThresholds();
     Tickets.getTickets()
       .then(function(results){
+        if(results.data === "failed") {
+          $location.path('/signin');
+          return
+        }
         $scope.isadmin = results.data.isadmin;
         $scope.userID = results.data.userID;
         $scope.name = results.data.displayname.split(" ")[0];

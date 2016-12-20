@@ -9,13 +9,6 @@ angular.module('app.services', [])
       method: 'GET',
       url: '/tickets'
     })
-    .then(function (resp) {
-      if (resp.data === 'failed') {
-        //Redirects to signing if authentication fails
-        $location.path('/signin');
-      }
-      return resp;
-    });
   };
 
   //Sends GET request to the server in order to render users tickets
@@ -145,16 +138,16 @@ angular.module('app.services', [])
 }])
 
 //Auth factory - handles authentication processes
-.factory('Auth', ['$http', '$location', function($http, $location){
+.factory('Auth', ['$http', '$location', '$window', function($http, $location, $window){
 
   //Redirects to path, so GitHub OAuth process will be triggered
   var signin = function () {
-    $location.path('/auth/github');
+    $window.location = '/auth/github';
   };
 
   //Redirects to path, so signout process will be triggered and handled on the server side
   var signout = function () {
-    $location.path('/signout')
+    $window.location = '/signout';
   };
 
   return {
