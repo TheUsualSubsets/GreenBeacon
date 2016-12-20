@@ -1,7 +1,7 @@
 angular.module('app.services', [])
 
 //Tickets factory - handles all tickets manipulations
-.factory('Tickets', ['$http', '$window', function ($http, $window) {
+.factory('Tickets', ['$http', '$location', function ($http, $location) {
 
   //Sends GET request to the server in order to render tickets
   var getTickets = function () {
@@ -12,7 +12,7 @@ angular.module('app.services', [])
     .then(function (resp) {
       if (resp.data === 'failed') {
         //Redirects to signing if authentication fails
-        $window.location = '/#/signin';
+        $location.path('/signin');
       }
       return resp;
     });
@@ -26,7 +26,7 @@ angular.module('app.services', [])
       url: '/userTickets'
     }).then(function (resp) {
       if (resp.data === 'failed') {
-        $window.location = '/#/signin';
+        $location.path('/signin');
       }
       return resp;
     })
@@ -145,16 +145,16 @@ angular.module('app.services', [])
 }])
 
 //Auth factory - handles authentication processes
-.factory('Auth', ['$http', '$window', function($http, $window){
+.factory('Auth', ['$http', '$location', function($http, $location){
 
   //Redirects to path, so GitHub OAuth process will be triggered
   var signin = function () {
-    $window.location = '/auth/github';
+    $location.path('/auth/github');
   };
 
   //Redirects to path, so signout process will be triggered and handled on the server side
   var signout = function () {
-    $window.location = '/signout';
+    $location.path('/signout')
   };
 
   return {
